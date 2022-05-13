@@ -1,0 +1,258 @@
+
+ <!-- <table class="table my-3">
+    <thead class=" text-light" style="background-color:rgb(238, 181, 39)">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Image</th>
+        <th scope="col">Price in USD</th>
+        <th scope="col">Price in EGP</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Items count</th>
+        <th scope="col">Add to Cart</th>
+        <th scope="col">Dtails</th>
+    </thead>
+  <tbody> -->
+    <!-- <tr *ngFor="let prd of prdList" [class.bg-warning]="prd.quantity==0"> -->
+    <!-- <tr [hidden]="prd.quantity==0" *ngFor="let prd of prdList; let i=index; trackBy: productsTrackBy" [style.background-color]="(prd.quantity==0)? 'lightyellow':'lightgray'"> -->
+    <!-- <ng-container *ngFor="let prd of prdListOfCat; let i=index; trackBy: productsTrackBy"> -->
+      <!-- <tr *ngIf="prd.quantity!=0" [style.background-color]="(prd.quantity==0)? 'lightyellow':'lightgray'"> -->
+      <!-- <tr [style.background-color]="(prd.quantity==0)? 'lightyellow':'lightgray'"> -->
+      <!-- <tr [ngStyle]="{'background-color':prd.Quantity==0? 'lightyellow':'lightgray', 'color':prd.Quantity==0? 'red':'darkblue'}"> -->
+
+        <!-- <td> -->
+          <!-- {{prd.id}} -->
+          <!-- {{i+1}}
+        </td> -->
+        <!-- <td>{{prd.Name}}</td> -->
+        <!-- <td><img LightBox highlightColor="yellow" [src]="prd.imgURL" alt="prd"></td> -->
+        <!-- <td><img LightBox="yellow" defaultColor="white" [src]="prd.Img" alt="prd" style="width: 100px; height: 100px;"></td>
+        <td>{{prd.Price | currency: 'USD' : 'code'}}</td>
+        <td>{{prd.Price |  currency: 'EGP'}}</td>
+        <td> -->
+          <!--
+            <div *ngIf="prd.quantity==0">Out of stock</div>
+          <div *ngIf="prd.quantity!=0">{{prd.quantity}}</div>
+        -->
+          <!-- <div *ngIf="prd.quantity!=0; else outOfStock">{{prd.quantity}}</div>
+          <ng-template #outOfStock>Out of stock</ng-template> -->
+          <!-- <ng-container [ngSwitch]="prd.Quantity">
+            <div *ngSwitchCase="0">Out of Stock</div>
+            <div *ngSwitchCase="1">Last Item</div>
+            <div *ngSwitchCase="2">Last 2 items</div>
+            <div *ngSwitchDefault>{{prd.Quantity}}</div>
+          </ng-container>
+        </td>
+        <td><input #itemsCount type="number" class="form-control"></td> -->
+        <!-- <td><button type="button" class="btn btn-secondary"
+           (click)="addProductToCard(pitem.id,+cartitme.value)"
+           >Add to cart</button>
+        </td> -->
+        <!-- <td><button type="button" class="btn " style="background-color:rgb(238, 181, 39)"
+          (click)="updateOrderTotalPrice(+itemsCount.value,prd.Price)"
+          >Add to cart</button>
+       </td>
+        <td> -->
+          <!-- <button class="btn-success text-dark" (click)="ProDetails(pitem.id)"> -->
+          <!-- <button class="btn-success text-dark" >
+
+            Details
+          </button>
+        </td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table> -->
+
+<div class="container">
+  <div class="row">
+      <ng-container *ngFor="let prd of prdListOfCat; let i=index; trackBy: productsTrackBy ">
+        <br>
+          <div class="card col-md-3">
+              <img [src]="prd.Img" alt="" style="height: 250px;">
+              <hr>
+              <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{prd.Name}}</h5>
+              <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;"><strong>Quantity :</strong>{{prd.Quantity}}</p>
+              <p><strong>Price : </strong> {{prd.Price | currency: 'USD' : 'code'}}</p>
+              <input #itemsCount type="number" class="form-control">
+              <button type="button" class="btn " style="background-color:rgb(238, 181, 39)"
+                (click)="updateOrderTotalPrice(+itemsCount.value,prd.Price)" (click)=addtocart(prd)
+                >Add to cart</button>
+              <button class="btn-success text-dark"   (click)="OpenpProductDetails(prd.ID)" >Details </button>
+          </div>
+      </ng-container>
+  </div>
+</div>
+<div class="bg-danger">
+  <h3>[For Test] To be removed:
+    <br>
+    Total price in nested component: {{orderTotalPrice}}
+  </h3>
+</div>
+
+
+<!-- <p>products works!</p>
+<div>
+    <h2>the info :</h2> -->
+    <!-- interpolation -->
+    <!-- <h2>{{StoreInfo.Name}}</h2> -->
+    <!-- properety binding -->
+    <!-- <img [src]="StoreInfo.Logo" alt="image error">
+</div>
+<hr> -->
+<!-- Example single danger button -->
+<!-- <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        Branches
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      <li><a class="dropdown-item" href="#" *ngFor="let item of StoreInfo.Branches"  >
+          {{item}}
+      </a></li>
+    </ul>
+</div>
+  <hr>
+
+  <div class="mb-3">
+    <label for="iname" class="form-label">enter your name</label>
+    <input type="text"  [(ngModel)]="ClientName"
+      class="form-control" name="iname" id="iname" aria-describedby="helpId" >
+      <label for="iname">Your name is : {{ClientName}}</label>
+  </div>
+  <hr> -->
+
+<!-- <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+      Category
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      <li><a class="dropdown-item" href="#" *ngFor="let item of category" (click)="ShowProducts(item.ID)" >
+          {{item.Name}}
+      </a></li>
+    </ul>
+</div>
+<br>
+<table class="table table-white" *ngIf="isShown" >
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Price</th>
+        <th scope="col">image</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr  *ngFor="let prolist of newProductList  let i=index" >
+        <td>{{i+1}}</td>
+        <td>{{prolist.Name}}</td>
+        <td>{{prolist.Quantity}}</td>
+        <td>{{prolist.Price | currency}}</td>
+        <td><img appProductCard [src]="prolist.Img" alt="prolist"></td>
+      </tr>
+    </tbody>
+  </table> -->
+
+
+
+
+<!-- 
+
+ <table class="table table-white" *ngIf="isShown" >
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Price</th>
+        <th scope="col">image</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr  *ngFor="let prolist of ProductList"  [ngStyle]="{'background-color': prolist.Quantity ==1? 'yellow':'lightgray'  , 'color': prolist.Quantity ==1? 'red':'black'} "   [hidden]="prolist.Quantity==0">
+        <td>{{prolist.ID}}</td>
+        <td>{{prolist.Name}}</td>
+        <td>{{prolist.Quantity}}</td>
+        <td>{{prolist.Price | currency}}</td>
+        <td><img appProductCard [src]="prolist.Img" alt="prolist"></td>
+      </tr>
+    </tbody>
+  </table> -->
+ 
+
+
+
+
+ <!-- <table class="table table-hover  table-success table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Quantity</th>
+      <th>$Price</th>
+      <th>Data</th>
+      <th>Image</th>
+      <th>Items</th>
+      <th>Details</th>
+      <th>AddToCart</th>
+
+    </tr>
+  </thead>
+  <tr *ngFor="let pitem of Productcart;let i=index" [hidden]="pitem.quantity==0"
+    [class.bg-warning]="pitem.quantity==1">
+    <th>{{i+1}}</th>
+    <th>
+      {{pitem.name}}
+    </th>
+    <th>
+      <ng-container *ngIf="pitem.quantity == 1">last item</ng-container>
+      <ng-container *ngIf="pitem.quantity > 1"> {{pitem.quantity}}</ng-container>
+     
+    </th>
+    <th>
+      {{pitem.price |currency }}
+    </th>
+
+    <th>
+      {{todaytime|date:"short"}}
+    </th>
+
+    <th>
+      <img [src]="pitem.img" class="rounded-circle h-50">
+
+    </th>
+
+    <th>
+      <input #cartitme type="number" class="form-control w-50"  >
+
+    </th>
+    <th>
+      <button class="btn-success text-dark" (click)="ProDetails(pitem.id)">
+        Details
+      </button>
+    </th>
+
+    <th>
+      <button class="btn-success text-dark"
+        (click)="addProductToCard(pitem.id,+cartitme.value)">
+        AddToCart
+      </button>
+       
+            
+      
+                
+    </th>
+  </tr>
+</table> -->
+
+ <!-- <div *ngIf="isdShown" >thank you <p>{{ClientName}}</p></div>
+ <button type="button" class="btn btn-primary d-block" (click)="toggle()"> Buy </button>
+ <hr> -->
+
+ <!-- <div class="mb-3">
+    <label for="cname" class="form-label">enter your Credit Cart :</label>
+    <input type="text"  [(ngModel)]="creditcart"
+      class="form-control" name="cname" id="cname" aria-describedby="helpId" >
+      <label for="cname">Your credit Cart is : {{creditcart | cridtcart}}</label>
+  </div>
+  <hr> -->

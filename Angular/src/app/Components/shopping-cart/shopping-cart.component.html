@@ -1,0 +1,43 @@
+<br>
+
+<!-- <h3>the Date : {{todaydate | date:"mediumTime"}}</h3> -->
+
+<!-- <p>shopping-cart worksssssssss!</p> -->
+
+  <!-- <div class="mb-3">
+    <br>
+    <label for="" class="form-label">Select Category</label>
+    <select class="form-control" name="cat" id="CatSel" title="catgory"
+        [(ngModel)]="selectedCatID">
+      <option value="0">Select All</option>
+      <option *ngFor="let cat of catList" [value]="cat.ID">{{cat.Name}}</option>
+    </select>
+  </div> -->
+
+
+  <div class="mb-3">
+    <label for="" class="form-label"> Select Type </label>
+    <select class="form-control" name="cat" id="CatSel" title="catgory"
+        [(ngModel)]="selectedCatID">
+      <option value="0">Select All</option>
+      <option *ngFor="let cat of catList" [value]="cat.ID">{{cat.Name}}</option>
+    </select>
+  </div>
+ 
+
+  <!-- <div class="bg-danger">
+     <h3>[For Test] To be removed:
+      Selected Cat ID in Parent: {{selectedCatID}}
+    </h3> 
+  </div> -->
+  
+  <div>
+    <app-products [receivedSelCatID]="selectedCatID"
+                  (onTotalPriceChanged)="updateTotalPrice($event)"></app-products>
+  </div>
+  <hr>
+ 
+
+  
+ 
+
